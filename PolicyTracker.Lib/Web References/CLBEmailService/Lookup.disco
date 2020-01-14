@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://clbmgrweb3.ci.long-beach.ca.us/SearchCLBEMail/Lookup.asmx?wsdl" docRef="https://clbmgrweb3.ci.long-beach.ca.us/SearchCLBEMail/Lookup.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://clbmgrweb3.ci.long-beach.ca.us/SearchCLBEMail/Lookup.asmx" xmlns:q1="http://longbeach.gov/" binding="q1:CLBEmailSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://clbmgrweb3.ci.long-beach.ca.us/SearchCLBEMail/Lookup.asmx" xmlns:q2="http://longbeach.gov/" binding="q2:CLBEmailSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

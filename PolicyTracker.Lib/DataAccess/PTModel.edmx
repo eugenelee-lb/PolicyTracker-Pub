@@ -1,0 +1,2565 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AppUsers">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserRole" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bureaus">
+          <Key>
+            <PropertyRef Name="BurCode" />
+          </Key>
+          <Property Name="BurCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BurDesc" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DeptCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disabled" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Classifications">
+          <Key>
+            <PropertyRef Name="ClassCode" />
+          </Key>
+          <Property Name="ClassCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClassDesc" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ClassType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disabled" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommonCodes">
+          <Key>
+            <PropertyRef Name="CmId" />
+          </Key>
+          <Property Name="CmId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CmCatg" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CmCode" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CmCodeDesc" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DispOrder" Type="int" Nullable="false" />
+          <Property Name="Disabled" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Configurations">
+          <Key>
+            <PropertyRef Name="ConfigKey" />
+          </Key>
+          <Property Name="ConfigKey" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ConfigDesc" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ConfigValue" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="DeptCode" />
+          </Key>
+          <Property Name="DeptCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DeptDesc" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FamisOrgCode" Type="varchar" MaxLength="50" />
+          <Property Name="ADOU" Type="varchar" MaxLength="50" />
+          <Property Name="DefaultUserGroup" Type="varchar" MaxLength="50" />
+          <Property Name="Disabled" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Divisions">
+          <Key>
+            <PropertyRef Name="DivCode" />
+          </Key>
+          <Property Name="DivCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DivDesc" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="BurCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CMDept" Type="varchar" MaxLength="50" />
+          <Property Name="PersUnitCode" Type="varchar" MaxLength="50" />
+          <Property Name="FamisOrg" Type="varchar" MaxLength="50" />
+          <Property Name="FamisDefaultIndex" Type="varchar" MaxLength="50" />
+          <Property Name="Disabled" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PIN" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Suffix" Type="varchar" MaxLength="50" />
+          <Property Name="OrgCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClassCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HireDate" Type="date" />
+          <Property Name="Disabled" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="MsgNo" />
+          </Key>
+          <Property Name="MsgNo" Type="int" Nullable="false" />
+          <Property Name="MsgText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MsgTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notices">
+          <Key>
+            <PropertyRef Name="NoticeId" />
+          </Key>
+          <Property Name="NoticeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NoticeTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NoticeText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StartDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="EndDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="DispOrder" Type="int" />
+          <Property Name="Disabled" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrgAdminNotices">
+          <Key>
+            <PropertyRef Name="ReleaseNoticeId" />
+          </Key>
+          <Property Name="ReleaseNoticeId" Type="int" Nullable="false" />
+          <Property Name="From" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="To" Type="varchar(max)" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="SentDT" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PacketAckFiles">
+          <Key>
+            <PropertyRef Name="ReleaseId" />
+            <PropertyRef Name="RecipientId" />
+            <PropertyRef Name="FileId" />
+          </Key>
+          <Property Name="ReleaseId" Type="int" Nullable="false" />
+          <Property Name="RecipientId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FileId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disabled" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Policies">
+          <Key>
+            <PropertyRef Name="PolicyId" />
+          </Key>
+          <Property Name="PolicyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PolicyName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PolicyDesc" Type="nvarchar(max)" />
+          <Property Name="ShowDisclaimer" Type="bit" Nullable="false" />
+          <Property Name="Disclaimer" Type="nvarchar(max)" />
+          <Property Name="ShareType" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DeptCode" Type="varchar" MaxLength="50" />
+          <Property Name="Disabled" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PolicyFiles">
+          <Key>
+            <PropertyRef Name="PolicyId" />
+            <PropertyRef Name="FileId" />
+          </Key>
+          <Property Name="PolicyId" Type="int" Nullable="false" />
+          <Property Name="FileId" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PolicyOwners">
+          <Key>
+            <PropertyRef Name="PolicyId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="PolicyId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Preferences">
+          <Key>
+            <PropertyRef Name="Catg" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="Catg" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Val" Type="varchar" MaxLength="50" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecipGroupClasses">
+          <Key>
+            <PropertyRef Name="RecipGroupId" />
+            <PropertyRef Name="ClassCode" />
+          </Key>
+          <Property Name="RecipGroupId" Type="int" Nullable="false" />
+          <Property Name="ClassCode" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecipGroupMembers">
+          <Key>
+            <PropertyRef Name="RecipGroupId" />
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="RecipGroupId" Type="int" Nullable="false" />
+          <Property Name="EmpId" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecipGroupOrgs">
+          <Key>
+            <PropertyRef Name="RecipGroupId" />
+            <PropertyRef Name="OrgCode" />
+          </Key>
+          <Property Name="RecipGroupId" Type="int" Nullable="false" />
+          <Property Name="OrgCode" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecipGroupOwners">
+          <Key>
+            <PropertyRef Name="RecipGroupId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="RecipGroupId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecipGroups">
+          <Key>
+            <PropertyRef Name="RecipGroupId" />
+          </Key>
+          <Property Name="RecipGroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="RecipGroupType" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ShareType" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DeptCode" Type="varchar" MaxLength="50" />
+          <Property Name="Disabled" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecipientNotices">
+          <Key>
+            <PropertyRef Name="ReleaseNoticeId" />
+            <PropertyRef Name="RecipientId" />
+          </Key>
+          <Property Name="ReleaseNoticeId" Type="int" Nullable="false" />
+          <Property Name="RecipientId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="From" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="To" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="SentDT" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ReleaseNotices">
+          <Key>
+            <PropertyRef Name="ReleaseNoticeId" />
+          </Key>
+          <Property Name="ReleaseNoticeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReleaseId" Type="int" Nullable="false" />
+          <Property Name="NoticeType" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="NoticeDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="StartDT" Type="datetime" />
+          <Property Name="CompleteDT" Type="datetime" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReleasePolicy">
+          <Key>
+            <PropertyRef Name="ReleaseId" />
+            <PropertyRef Name="PolicyId" />
+          </Key>
+          <Property Name="ReleaseId" Type="int" Nullable="false" />
+          <Property Name="PolicyId" Type="int" Nullable="false" />
+          <Property Name="PolicyName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PolicyDesc" Type="nvarchar(max)" />
+          <Property Name="ShowDisclaimer" Type="bit" Nullable="false" />
+          <Property Name="Disclaimer" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ReleasePolicyFiles">
+          <Key>
+            <PropertyRef Name="ReleaseId" />
+            <PropertyRef Name="PolicyId" />
+            <PropertyRef Name="FileId" />
+          </Key>
+          <Property Name="ReleaseId" Type="int" Nullable="false" />
+          <Property Name="PolicyId" Type="int" Nullable="false" />
+          <Property Name="FileId" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReleaseRecipients">
+          <Key>
+            <PropertyRef Name="ReleaseId" />
+            <PropertyRef Name="RecipientId" />
+          </Key>
+          <Property Name="ReleaseId" Type="int" Nullable="false" />
+          <Property Name="RecipientId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RecipientName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="RecipientEmail" Type="varchar" MaxLength="500" />
+          <Property Name="OrgCode" Type="varchar" MaxLength="50" />
+          <Property Name="AckDT" Type="datetime" />
+          <Property Name="AckUserId" Type="varchar" MaxLength="50" />
+          <Property Name="AckClientIP" Type="varchar" MaxLength="50" />
+          <Property Name="RecipientViewDT" Type="datetime" />
+          <Property Name="RecipientViewClientIP" Type="varchar" MaxLength="50" />
+          <Property Name="AdminMemo" Type="nvarchar(max)" />
+          <Property Name="Exception" Type="varchar" MaxLength="100" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AckAuthType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Releases">
+          <Key>
+            <PropertyRef Name="ReleaseId" />
+          </Key>
+          <Property Name="ReleaseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScheduleId" Type="int" Nullable="false" />
+          <Property Name="ReleaseDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="DeadlineDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="To" Type="nvarchar" MaxLength="500" />
+          <Property Name="From" Type="nvarchar" MaxLength="500" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="500" />
+          <Property Name="Disclaimer" Type="nvarchar(max)" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScheduleOwners">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ScheduleId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SchedulePolicy">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+            <PropertyRef Name="PolicyId" />
+          </Key>
+          <Property Name="ScheduleId" Type="int" Nullable="false" />
+          <Property Name="PolicyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScheduleRecipGroup">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+            <PropertyRef Name="RecipGroupId" />
+          </Key>
+          <Property Name="ScheduleId" Type="int" Nullable="false" />
+          <Property Name="RecipGroupId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Schedules">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+          </Key>
+          <Property Name="ScheduleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScheduleName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ScheduleDesc" Type="nvarchar(max)" />
+          <Property Name="Frequency" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="RepeatMonth" Type="smallint" />
+          <Property Name="RepeatDay" Type="smallint" />
+          <Property Name="FixedReleaseDate" Type="smalldatetime" />
+          <Property Name="DaysToDeadline" Type="smallint" Nullable="false" />
+          <Property Name="DaysToReminder" Type="varchar" MaxLength="50" />
+          <Property Name="To" Type="nvarchar" MaxLength="500" />
+          <Property Name="From" Type="nvarchar" MaxLength="500" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="500" />
+          <Property Name="Disclaimer" Type="nvarchar(max)" />
+          <Property Name="Disabled" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UploadFiles">
+          <Key>
+            <PropertyRef Name="FileId" />
+          </Key>
+          <Property Name="FileId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FileUrl" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FileData" Type="varbinary(max)" />
+          <Property Name="OriginalName" Type="nvarchar" MaxLength="500" />
+          <Property Name="ContentType" Type="varchar" MaxLength="500" />
+          <Property Name="Length" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserOrgs">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="OrgCode" />
+          </Key>
+          <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrgCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AccessLevel" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USStates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="USPS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OldGPO" Type="varchar" MaxLength="50" />
+          <Property Name="AP" Type="varchar" MaxLength="255" />
+          <Property Name="FIPS" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PolicyTracker_D.dbo.vEmployees' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vEmployees">
+          <Key>
+            <PropertyRef Name="EmpId" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="OrgCode" />
+            <PropertyRef Name="ClassCode" />
+            <PropertyRef Name="Disabled" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastUpdateDT" />
+          </Key>
+          <Property Name="EmpId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PIN" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Suffix" Type="varchar" MaxLength="50" />
+          <Property Name="OrgCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClassCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HireDate" Type="date" />
+          <Property Name="Disabled" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="DeptDesc" Type="varchar" MaxLength="100" />
+          <Property Name="BurDesc" Type="varchar" MaxLength="100" />
+          <Property Name="OrgDesc" Type="varchar" MaxLength="100" />
+          <Property Name="ClassDesc" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PolicyTracker_D.dbo.vOrgAdmins' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vOrgAdmins">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="AccessLevel" />
+            <PropertyRef Name="OrgCode" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="CreateUser" />
+            <PropertyRef Name="LastUpdateDT" />
+            <PropertyRef Name="LastUpdateUser" />
+          </Key>
+          <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="AccessLevel" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="OrgCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrgDesc" Type="varchar" MaxLength="153" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PolicyTracker_D.dbo.vOrganizations' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vOrganizations">
+          <Key>
+            <PropertyRef Name="OrgCode" />
+            <PropertyRef Name="OrgDesc" />
+            <PropertyRef Name="Disabled" />
+          </Key>
+          <Property Name="OrgCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrgDesc" Type="varchar" MaxLength="153" Nullable="false" />
+          <Property Name="Disabled" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PolicyTracker_D.dbo.vPackets' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vPackets">
+          <Key>
+            <PropertyRef Name="ReleaseId" />
+            <PropertyRef Name="RecipientId" />
+            <PropertyRef Name="RecipientName" />
+            <PropertyRef Name="ReleaseDate" />
+            <PropertyRef Name="DeadlineDate" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="CreateUser" />
+            <PropertyRef Name="LastUpdateDT" />
+            <PropertyRef Name="LastUpdateUser" />
+          </Key>
+          <Property Name="ReleaseId" Type="int" Nullable="false" />
+          <Property Name="RecipientId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RecipientName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="RecipientEmail" Type="varchar" MaxLength="500" />
+          <Property Name="OrgCode" Type="varchar" MaxLength="50" />
+          <Property Name="OrgDesc" Type="varchar" MaxLength="100" />
+          <Property Name="ClassCode" Type="varchar" MaxLength="50" />
+          <Property Name="ClassDesc" Type="varchar" MaxLength="100" />
+          <Property Name="AckDT" Type="datetime" />
+          <Property Name="AckUserId" Type="varchar" MaxLength="50" />
+          <Property Name="AckClientIP" Type="varchar" MaxLength="50" />
+          <Property Name="AckAuthType" Type="varchar" MaxLength="50" />
+          <Property Name="RecipientViewDT" Type="datetime" />
+          <Property Name="RecipientViewClientIP" Type="varchar" MaxLength="50" />
+          <Property Name="AdminMemo" Type="nvarchar(max)" />
+          <Property Name="Exception" Type="varchar" MaxLength="100" />
+          <Property Name="ReleaseDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="DeadlineDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="To" Type="nvarchar" MaxLength="500" />
+          <Property Name="From" Type="nvarchar" MaxLength="500" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AckFilesCount" Type="int" />
+        </EntityType>
+        <Association Name="FK_Bur_Dept">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+          <End Role="Bureaus" Type="Self.Bureaus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="DeptCode" />
+            </Principal>
+            <Dependent Role="Bureaus">
+              <PropertyRef Name="DeptCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Div_Bur">
+          <End Role="Bureaus" Type="Self.Bureaus" Multiplicity="1" />
+          <End Role="Divisions" Type="Self.Divisions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bureaus">
+              <PropertyRef Name="BurCode" />
+            </Principal>
+            <Dependent Role="Divisions">
+              <PropertyRef Name="BurCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OAN_RelNotice">
+          <End Role="ReleaseNotices" Type="Self.ReleaseNotices" Multiplicity="1" />
+          <End Role="OrgAdminNotices" Type="Self.OrgAdminNotices" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ReleaseNotices">
+              <PropertyRef Name="ReleaseNoticeId" />
+            </Principal>
+            <Dependent Role="OrgAdminNotices">
+              <PropertyRef Name="ReleaseNoticeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAF_File">
+          <End Role="UploadFiles" Type="Self.UploadFiles" Multiplicity="1" />
+          <End Role="PacketAckFiles" Type="Self.PacketAckFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UploadFiles">
+              <PropertyRef Name="FileId" />
+            </Principal>
+            <Dependent Role="PacketAckFiles">
+              <PropertyRef Name="FileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAF_ReleaseRecipient">
+          <End Role="ReleaseRecipients" Type="Self.ReleaseRecipients" Multiplicity="1" />
+          <End Role="PacketAckFiles" Type="Self.PacketAckFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReleaseRecipients">
+              <PropertyRef Name="ReleaseId" />
+              <PropertyRef Name="RecipientId" />
+            </Principal>
+            <Dependent Role="PacketAckFiles">
+              <PropertyRef Name="ReleaseId" />
+              <PropertyRef Name="RecipientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PF_File">
+          <End Role="UploadFiles" Type="Self.UploadFiles" Multiplicity="1" />
+          <End Role="PolicyFiles" Type="Self.PolicyFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UploadFiles">
+              <PropertyRef Name="FileId" />
+            </Principal>
+            <Dependent Role="PolicyFiles">
+              <PropertyRef Name="FileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PF_Policy">
+          <End Role="Policies" Type="Self.Policies" Multiplicity="1" />
+          <End Role="PolicyFiles" Type="Self.PolicyFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Policies">
+              <PropertyRef Name="PolicyId" />
+            </Principal>
+            <Dependent Role="PolicyFiles">
+              <PropertyRef Name="PolicyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PO_Policy">
+          <End Role="Policies" Type="Self.Policies" Multiplicity="1" />
+          <End Role="PolicyOwners" Type="Self.PolicyOwners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Policies">
+              <PropertyRef Name="PolicyId" />
+            </Principal>
+            <Dependent Role="PolicyOwners">
+              <PropertyRef Name="PolicyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rel_Schedule">
+          <End Role="Schedules" Type="Self.Schedules" Multiplicity="1" />
+          <End Role="Releases" Type="Self.Releases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedules">
+              <PropertyRef Name="ScheduleId" />
+            </Principal>
+            <Dependent Role="Releases">
+              <PropertyRef Name="ScheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RelN_Release">
+          <End Role="Releases" Type="Self.Releases" Multiplicity="1" />
+          <End Role="ReleaseNotices" Type="Self.ReleaseNotices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Releases">
+              <PropertyRef Name="ReleaseId" />
+            </Principal>
+            <Dependent Role="ReleaseNotices">
+              <PropertyRef Name="ReleaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RelRecip_Div">
+          <End Role="Divisions" Type="Self.Divisions" Multiplicity="0..1" />
+          <End Role="ReleaseRecipients" Type="Self.ReleaseRecipients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Divisions">
+              <PropertyRef Name="DivCode" />
+            </Principal>
+            <Dependent Role="ReleaseRecipients">
+              <PropertyRef Name="OrgCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RelRecip_Release">
+          <End Role="Releases" Type="Self.Releases" Multiplicity="1" />
+          <End Role="ReleaseRecipients" Type="Self.ReleaseRecipients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Releases">
+              <PropertyRef Name="ReleaseId" />
+            </Principal>
+            <Dependent Role="ReleaseRecipients">
+              <PropertyRef Name="ReleaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RGC_Class">
+          <End Role="Classifications" Type="Self.Classifications" Multiplicity="1" />
+          <End Role="RecipGroupClasses" Type="Self.RecipGroupClasses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classifications">
+              <PropertyRef Name="ClassCode" />
+            </Principal>
+            <Dependent Role="RecipGroupClasses">
+              <PropertyRef Name="ClassCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RGC_RecipGroup">
+          <End Role="RecipGroups" Type="Self.RecipGroups" Multiplicity="1" />
+          <End Role="RecipGroupClasses" Type="Self.RecipGroupClasses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipGroups">
+              <PropertyRef Name="RecipGroupId" />
+            </Principal>
+            <Dependent Role="RecipGroupClasses">
+              <PropertyRef Name="RecipGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RGM_Emp">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="RecipGroupMembers" Type="Self.RecipGroupMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmpId" />
+            </Principal>
+            <Dependent Role="RecipGroupMembers">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RGM_RecipGroup">
+          <End Role="RecipGroups" Type="Self.RecipGroups" Multiplicity="1" />
+          <End Role="RecipGroupMembers" Type="Self.RecipGroupMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipGroups">
+              <PropertyRef Name="RecipGroupId" />
+            </Principal>
+            <Dependent Role="RecipGroupMembers">
+              <PropertyRef Name="RecipGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RGO_RecipGroup">
+          <End Role="RecipGroups" Type="Self.RecipGroups" Multiplicity="1" />
+          <End Role="RecipGroupOrgs" Type="Self.RecipGroupOrgs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipGroups">
+              <PropertyRef Name="RecipGroupId" />
+            </Principal>
+            <Dependent Role="RecipGroupOrgs">
+              <PropertyRef Name="RecipGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RN_RelNotice">
+          <End Role="ReleaseNotices" Type="Self.ReleaseNotices" Multiplicity="1" />
+          <End Role="RecipientNotices" Type="Self.RecipientNotices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReleaseNotices">
+              <PropertyRef Name="ReleaseNoticeId" />
+            </Principal>
+            <Dependent Role="RecipientNotices">
+              <PropertyRef Name="ReleaseNoticeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RO_RecipGroup">
+          <End Role="RecipGroups" Type="Self.RecipGroups" Multiplicity="1" />
+          <End Role="RecipGroupOwners" Type="Self.RecipGroupOwners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipGroups">
+              <PropertyRef Name="RecipGroupId" />
+            </Principal>
+            <Dependent Role="RecipGroupOwners">
+              <PropertyRef Name="RecipGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RP_Policy">
+          <End Role="Policies" Type="Self.Policies" Multiplicity="1" />
+          <End Role="ReleasePolicy" Type="Self.ReleasePolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Policies">
+              <PropertyRef Name="PolicyId" />
+            </Principal>
+            <Dependent Role="ReleasePolicy">
+              <PropertyRef Name="PolicyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RP_Release">
+          <End Role="Releases" Type="Self.Releases" Multiplicity="1" />
+          <End Role="ReleasePolicy" Type="Self.ReleasePolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Releases">
+              <PropertyRef Name="ReleaseId" />
+            </Principal>
+            <Dependent Role="ReleasePolicy">
+              <PropertyRef Name="ReleaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RPF_File">
+          <End Role="UploadFiles" Type="Self.UploadFiles" Multiplicity="1" />
+          <End Role="ReleasePolicyFiles" Type="Self.ReleasePolicyFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UploadFiles">
+              <PropertyRef Name="FileId" />
+            </Principal>
+            <Dependent Role="ReleasePolicyFiles">
+              <PropertyRef Name="FileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RPF_ReleasePolicy">
+          <End Role="ReleasePolicy" Type="Self.ReleasePolicy" Multiplicity="1" />
+          <End Role="ReleasePolicyFiles" Type="Self.ReleasePolicyFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReleasePolicy">
+              <PropertyRef Name="ReleaseId" />
+              <PropertyRef Name="PolicyId" />
+            </Principal>
+            <Dependent Role="ReleasePolicyFiles">
+              <PropertyRef Name="ReleaseId" />
+              <PropertyRef Name="PolicyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SO_Schedule">
+          <End Role="Schedules" Type="Self.Schedules" Multiplicity="1" />
+          <End Role="ScheduleOwners" Type="Self.ScheduleOwners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedules">
+              <PropertyRef Name="ScheduleId" />
+            </Principal>
+            <Dependent Role="ScheduleOwners">
+              <PropertyRef Name="ScheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SP_Policy">
+          <End Role="Policies" Type="Self.Policies" Multiplicity="1" />
+          <End Role="SchedulePolicy" Type="Self.SchedulePolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Policies">
+              <PropertyRef Name="PolicyId" />
+            </Principal>
+            <Dependent Role="SchedulePolicy">
+              <PropertyRef Name="PolicyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SP_Schedule">
+          <End Role="Schedules" Type="Self.Schedules" Multiplicity="1" />
+          <End Role="SchedulePolicy" Type="Self.SchedulePolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedules">
+              <PropertyRef Name="ScheduleId" />
+            </Principal>
+            <Dependent Role="SchedulePolicy">
+              <PropertyRef Name="ScheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SRG_RecipGroup">
+          <End Role="RecipGroups" Type="Self.RecipGroups" Multiplicity="1" />
+          <End Role="ScheduleRecipGroup" Type="Self.ScheduleRecipGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipGroups">
+              <PropertyRef Name="RecipGroupId" />
+            </Principal>
+            <Dependent Role="ScheduleRecipGroup">
+              <PropertyRef Name="RecipGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SRG_Schedule">
+          <End Role="Schedules" Type="Self.Schedules" Multiplicity="1" />
+          <End Role="ScheduleRecipGroup" Type="Self.ScheduleRecipGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedules">
+              <PropertyRef Name="ScheduleId" />
+            </Principal>
+            <Dependent Role="ScheduleRecipGroup">
+              <PropertyRef Name="ScheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserOrgs_AppUsers">
+          <End Role="AppUsers" Type="Self.AppUsers" Multiplicity="1" />
+          <End Role="UserOrgs" Type="Self.UserOrgs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppUsers">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserOrgs">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PTModelStoreContainer">
+          <EntitySet Name="AppUsers" EntityType="Self.AppUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bureaus" EntityType="Self.Bureaus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Classifications" EntityType="Self.Classifications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommonCodes" EntityType="Self.CommonCodes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Configurations" EntityType="Self.Configurations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Divisions" EntityType="Self.Divisions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notices" EntityType="Self.Notices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrgAdminNotices" EntityType="Self.OrgAdminNotices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PacketAckFiles" EntityType="Self.PacketAckFiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Policies" EntityType="Self.Policies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PolicyFiles" EntityType="Self.PolicyFiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PolicyOwners" EntityType="Self.PolicyOwners" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Preferences" EntityType="Self.Preferences" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipGroupClasses" EntityType="Self.RecipGroupClasses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipGroupMembers" EntityType="Self.RecipGroupMembers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipGroupOrgs" EntityType="Self.RecipGroupOrgs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipGroupOwners" EntityType="Self.RecipGroupOwners" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipGroups" EntityType="Self.RecipGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipientNotices" EntityType="Self.RecipientNotices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReleaseNotices" EntityType="Self.ReleaseNotices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReleasePolicy" EntityType="Self.ReleasePolicy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReleasePolicyFiles" EntityType="Self.ReleasePolicyFiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReleaseRecipients" EntityType="Self.ReleaseRecipients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Releases" EntityType="Self.Releases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScheduleOwners" EntityType="Self.ScheduleOwners" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SchedulePolicy" EntityType="Self.SchedulePolicy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScheduleRecipGroup" EntityType="Self.ScheduleRecipGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedules" EntityType="Self.Schedules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UploadFiles" EntityType="Self.UploadFiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserOrgs" EntityType="Self.UserOrgs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USStates" EntityType="Self.USStates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vEmployees" EntityType="Self.vEmployees" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vEmployees].[EmpId] AS [EmpId], 
+    [vEmployees].[PIN] AS [PIN], 
+    [vEmployees].[Status] AS [Status], 
+    [vEmployees].[FirstName] AS [FirstName], 
+    [vEmployees].[MiddleName] AS [MiddleName], 
+    [vEmployees].[LastName] AS [LastName], 
+    [vEmployees].[Suffix] AS [Suffix], 
+    [vEmployees].[OrgCode] AS [OrgCode], 
+    [vEmployees].[ClassCode] AS [ClassCode], 
+    [vEmployees].[HireDate] AS [HireDate], 
+    [vEmployees].[Disabled] AS [Disabled], 
+    [vEmployees].[CreateDT] AS [CreateDT], 
+    [vEmployees].[LastUpdateDT] AS [LastUpdateDT], 
+    [vEmployees].[DeptDesc] AS [DeptDesc], 
+    [vEmployees].[BurDesc] AS [BurDesc], 
+    [vEmployees].[OrgDesc] AS [OrgDesc], 
+    [vEmployees].[ClassDesc] AS [ClassDesc]
+    FROM [dbo].[vEmployees] AS [vEmployees]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vOrgAdmins" EntityType="Self.vOrgAdmins" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vOrgAdmins].[UserId] AS [UserId], 
+    [vOrgAdmins].[UserName] AS [UserName], 
+    [vOrgAdmins].[AccessLevel] AS [AccessLevel], 
+    [vOrgAdmins].[OrgCode] AS [OrgCode], 
+    [vOrgAdmins].[OrgDesc] AS [OrgDesc], 
+    [vOrgAdmins].[CreateDT] AS [CreateDT], 
+    [vOrgAdmins].[CreateUser] AS [CreateUser], 
+    [vOrgAdmins].[LastUpdateDT] AS [LastUpdateDT], 
+    [vOrgAdmins].[LastUpdateUser] AS [LastUpdateUser]
+    FROM [dbo].[vOrgAdmins] AS [vOrgAdmins]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vOrganizations" EntityType="Self.vOrganizations" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vOrganizations].[OrgCode] AS [OrgCode], 
+    [vOrganizations].[OrgDesc] AS [OrgDesc], 
+    [vOrganizations].[Disabled] AS [Disabled]
+    FROM [dbo].[vOrganizations] AS [vOrganizations]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vPackets" EntityType="Self.vPackets" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vPackets].[ReleaseId] AS [ReleaseId], 
+    [vPackets].[RecipientId] AS [RecipientId], 
+    [vPackets].[RecipientName] AS [RecipientName], 
+    [vPackets].[RecipientEmail] AS [RecipientEmail], 
+    [vPackets].[OrgCode] AS [OrgCode], 
+    [vPackets].[OrgDesc] AS [OrgDesc], 
+    [vPackets].[ClassCode] AS [ClassCode], 
+    [vPackets].[ClassDesc] AS [ClassDesc], 
+    [vPackets].[AckDT] AS [AckDT], 
+    [vPackets].[AckUserId] AS [AckUserId], 
+    [vPackets].[AckClientIP] AS [AckClientIP], 
+    [vPackets].[AckAuthType] AS [AckAuthType], 
+    [vPackets].[RecipientViewDT] AS [RecipientViewDT], 
+    [vPackets].[RecipientViewClientIP] AS [RecipientViewClientIP], 
+    [vPackets].[AdminMemo] AS [AdminMemo], 
+    [vPackets].[Exception] AS [Exception], 
+    [vPackets].[ReleaseDate] AS [ReleaseDate], 
+    [vPackets].[DeadlineDate] AS [DeadlineDate], 
+    [vPackets].[To] AS [To], 
+    [vPackets].[From] AS [From], 
+    [vPackets].[Subject] AS [Subject], 
+    [vPackets].[CreateDT] AS [CreateDT], 
+    [vPackets].[CreateUser] AS [CreateUser], 
+    [vPackets].[LastUpdateDT] AS [LastUpdateDT], 
+    [vPackets].[LastUpdateUser] AS [LastUpdateUser], 
+    [vPackets].[AckFilesCount] AS [AckFilesCount]
+    FROM [dbo].[vPackets] AS [vPackets]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Bur_Dept" Association="Self.FK_Bur_Dept">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Bureaus" EntitySet="Bureaus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Div_Bur" Association="Self.FK_Div_Bur">
+            <End Role="Bureaus" EntitySet="Bureaus" />
+            <End Role="Divisions" EntitySet="Divisions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OAN_RelNotice" Association="Self.FK_OAN_RelNotice">
+            <End Role="ReleaseNotices" EntitySet="ReleaseNotices" />
+            <End Role="OrgAdminNotices" EntitySet="OrgAdminNotices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAF_File" Association="Self.FK_PAF_File">
+            <End Role="UploadFiles" EntitySet="UploadFiles" />
+            <End Role="PacketAckFiles" EntitySet="PacketAckFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAF_ReleaseRecipient" Association="Self.FK_PAF_ReleaseRecipient">
+            <End Role="ReleaseRecipients" EntitySet="ReleaseRecipients" />
+            <End Role="PacketAckFiles" EntitySet="PacketAckFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PF_File" Association="Self.FK_PF_File">
+            <End Role="UploadFiles" EntitySet="UploadFiles" />
+            <End Role="PolicyFiles" EntitySet="PolicyFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PF_Policy" Association="Self.FK_PF_Policy">
+            <End Role="Policies" EntitySet="Policies" />
+            <End Role="PolicyFiles" EntitySet="PolicyFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PO_Policy" Association="Self.FK_PO_Policy">
+            <End Role="Policies" EntitySet="Policies" />
+            <End Role="PolicyOwners" EntitySet="PolicyOwners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rel_Schedule" Association="Self.FK_Rel_Schedule">
+            <End Role="Schedules" EntitySet="Schedules" />
+            <End Role="Releases" EntitySet="Releases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RelN_Release" Association="Self.FK_RelN_Release">
+            <End Role="Releases" EntitySet="Releases" />
+            <End Role="ReleaseNotices" EntitySet="ReleaseNotices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RelRecip_Div" Association="Self.FK_RelRecip_Div">
+            <End Role="Divisions" EntitySet="Divisions" />
+            <End Role="ReleaseRecipients" EntitySet="ReleaseRecipients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RelRecip_Release" Association="Self.FK_RelRecip_Release">
+            <End Role="Releases" EntitySet="Releases" />
+            <End Role="ReleaseRecipients" EntitySet="ReleaseRecipients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RGC_Class" Association="Self.FK_RGC_Class">
+            <End Role="Classifications" EntitySet="Classifications" />
+            <End Role="RecipGroupClasses" EntitySet="RecipGroupClasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RGC_RecipGroup" Association="Self.FK_RGC_RecipGroup">
+            <End Role="RecipGroups" EntitySet="RecipGroups" />
+            <End Role="RecipGroupClasses" EntitySet="RecipGroupClasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RGM_Emp" Association="Self.FK_RGM_Emp">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="RecipGroupMembers" EntitySet="RecipGroupMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RGM_RecipGroup" Association="Self.FK_RGM_RecipGroup">
+            <End Role="RecipGroups" EntitySet="RecipGroups" />
+            <End Role="RecipGroupMembers" EntitySet="RecipGroupMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RGO_RecipGroup" Association="Self.FK_RGO_RecipGroup">
+            <End Role="RecipGroups" EntitySet="RecipGroups" />
+            <End Role="RecipGroupOrgs" EntitySet="RecipGroupOrgs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RN_RelNotice" Association="Self.FK_RN_RelNotice">
+            <End Role="ReleaseNotices" EntitySet="ReleaseNotices" />
+            <End Role="RecipientNotices" EntitySet="RecipientNotices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RO_RecipGroup" Association="Self.FK_RO_RecipGroup">
+            <End Role="RecipGroups" EntitySet="RecipGroups" />
+            <End Role="RecipGroupOwners" EntitySet="RecipGroupOwners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RP_Policy" Association="Self.FK_RP_Policy">
+            <End Role="Policies" EntitySet="Policies" />
+            <End Role="ReleasePolicy" EntitySet="ReleasePolicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RP_Release" Association="Self.FK_RP_Release">
+            <End Role="Releases" EntitySet="Releases" />
+            <End Role="ReleasePolicy" EntitySet="ReleasePolicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RPF_File" Association="Self.FK_RPF_File">
+            <End Role="UploadFiles" EntitySet="UploadFiles" />
+            <End Role="ReleasePolicyFiles" EntitySet="ReleasePolicyFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RPF_ReleasePolicy" Association="Self.FK_RPF_ReleasePolicy">
+            <End Role="ReleasePolicy" EntitySet="ReleasePolicy" />
+            <End Role="ReleasePolicyFiles" EntitySet="ReleasePolicyFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SO_Schedule" Association="Self.FK_SO_Schedule">
+            <End Role="Schedules" EntitySet="Schedules" />
+            <End Role="ScheduleOwners" EntitySet="ScheduleOwners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SP_Policy" Association="Self.FK_SP_Policy">
+            <End Role="Policies" EntitySet="Policies" />
+            <End Role="SchedulePolicy" EntitySet="SchedulePolicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SP_Schedule" Association="Self.FK_SP_Schedule">
+            <End Role="Schedules" EntitySet="Schedules" />
+            <End Role="SchedulePolicy" EntitySet="SchedulePolicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SRG_RecipGroup" Association="Self.FK_SRG_RecipGroup">
+            <End Role="RecipGroups" EntitySet="RecipGroups" />
+            <End Role="ScheduleRecipGroup" EntitySet="ScheduleRecipGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SRG_Schedule" Association="Self.FK_SRG_Schedule">
+            <End Role="Schedules" EntitySet="Schedules" />
+            <End Role="ScheduleRecipGroup" EntitySet="ScheduleRecipGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserOrgs_AppUsers" Association="Self.FK_UserOrgs_AppUsers">
+            <End Role="AppUsers" EntitySet="AppUsers" />
+            <End Role="UserOrgs" EntitySet="UserOrgs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AppUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserRole" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="UserOrgs" Relationship="PTModel.FK_UserOrgs_AppUsers" FromRole="AppUser" ToRole="UserOrg" />
+        </EntityType>
+        <EntityType Name="CommonCode">
+          <Key>
+            <PropertyRef Name="CmId" />
+          </Key>
+          <Property Name="CmId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CmCatg" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CmCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CmCodeDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DispOrder" Type="Int32" Nullable="false" />
+          <Property Name="Disabled" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Configuration">
+          <Key>
+            <PropertyRef Name="ConfigKey" />
+          </Key>
+          <Property Name="ConfigKey" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ConfigDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ConfigValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MsgNo" />
+          </Key>
+          <Property Name="MsgNo" Type="Int32" Nullable="false" />
+          <Property Name="MsgText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MsgTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notice">
+          <Key>
+            <PropertyRef Name="NoticeId" />
+          </Key>
+          <Property Name="NoticeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NoticeTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NoticeText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DispOrder" Type="Int32" />
+          <Property Name="Disabled" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Preference">
+          <Key>
+            <PropertyRef Name="Catg" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="Catg" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Val" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USState">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USPS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OldGPO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FIPS" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="PTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AppUsers" EntityType="Self.AppUser" />
+          <EntitySet Name="CommonCodes" EntityType="Self.CommonCode" />
+          <EntitySet Name="Configurations" EntityType="Self.Configuration" />
+          <EntitySet Name="Messages" EntityType="Self.Message" />
+          <EntitySet Name="Notices" EntityType="Self.Notice" />
+          <EntitySet Name="Preferences" EntityType="Self.Preference" />
+          <EntitySet Name="USStates" EntityType="Self.USState" />
+          <EntitySet Name="Bureaus" EntityType="PTModel.Bureau" />
+          <EntitySet Name="Classifications" EntityType="PTModel.Classification" />
+          <EntitySet Name="Departments" EntityType="PTModel.Department" />
+          <EntitySet Name="Divisions" EntityType="PTModel.Division" />
+          <EntitySet Name="Employees" EntityType="PTModel.Employee" />
+          <EntitySet Name="UserOrgs" EntityType="PTModel.UserOrg" />
+          <EntitySet Name="vEmployees" EntityType="PTModel.vEmployee" />
+          <EntitySet Name="vOrganizations" EntityType="PTModel.vOrganization" />
+          <AssociationSet Name="FK_UserOrgs_AppUsers" Association="PTModel.FK_UserOrgs_AppUsers">
+            <End Role="AppUser" EntitySet="AppUsers" />
+            <End Role="UserOrg" EntitySet="UserOrgs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bur_Dept" Association="PTModel.FK_Bur_Dept">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Bureau" EntitySet="Bureaus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Div_Bur" Association="PTModel.FK_Div_Bur">
+            <End Role="Bureau" EntitySet="Bureaus" />
+            <End Role="Division" EntitySet="Divisions" />
+          </AssociationSet>
+          <EntitySet Name="OrgAdminNotices" EntityType="PTModel.OrgAdminNotice" />
+          <EntitySet Name="PolicyOwners" EntityType="PTModel.PolicyOwner" />
+          <EntitySet Name="RecipGroupOrgs" EntityType="PTModel.RecipGroupOrg" />
+          <EntitySet Name="RecipGroupOwners" EntityType="PTModel.RecipGroupOwner" />
+          <EntitySet Name="RecipientNotices" EntityType="PTModel.RecipientNotice" />
+          <EntitySet Name="ReleasePolicies" EntityType="PTModel.ReleasePolicy" />
+          <EntitySet Name="Releases" EntityType="PTModel.Release" />
+          <EntitySet Name="ScheduleOwners" EntityType="PTModel.ScheduleOwner" />
+          <EntitySet Name="UploadFiles" EntityType="PTModel.UploadFile" />
+          <AssociationSet Name="FK_RP_Release" Association="PTModel.FK_RP_Release">
+            <End Role="Release" EntitySet="Releases" />
+            <End Role="ReleasePolicy" EntitySet="ReleasePolicies" />
+          </AssociationSet>
+          <AssociationSet Name="ReleasePolicyFiles" Association="PTModel.ReleasePolicyFiles">
+            <End Role="UploadFile" EntitySet="UploadFiles" />
+            <End Role="ReleasePolicy" EntitySet="ReleasePolicies" />
+          </AssociationSet>
+          <EntitySet Name="RecipGroups" EntityType="PTModel.RecipGroup" />
+          <AssociationSet Name="FK_RGO_RecipGroup" Association="PTModel.FK_RGO_RecipGroup">
+            <End Role="RecipGroup" EntitySet="RecipGroups" />
+            <End Role="RecipGroupOrg" EntitySet="RecipGroupOrgs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RO_RecipGroup" Association="PTModel.FK_RO_RecipGroup">
+            <End Role="RecipGroup" EntitySet="RecipGroups" />
+            <End Role="RecipGroupOwner" EntitySet="RecipGroupOwners" />
+          </AssociationSet>
+          <AssociationSet Name="RecipGroupClasses" Association="PTModel.RecipGroupClasses">
+            <End Role="Classification" EntitySet="Classifications" />
+            <End Role="RecipGroup" EntitySet="RecipGroups" />
+          </AssociationSet>
+          <AssociationSet Name="RecipGroupMembers" Association="PTModel.RecipGroupMembers">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="RecipGroup" EntitySet="RecipGroups" />
+          </AssociationSet>
+          <EntitySet Name="Policies" EntityType="PTModel.Policy" />
+          <EntitySet Name="Schedules" EntityType="PTModel.Schedule" />
+          <AssociationSet Name="FK_PO_Policy" Association="PTModel.FK_PO_Policy">
+            <End Role="Policy" EntitySet="Policies" />
+            <End Role="PolicyOwner" EntitySet="PolicyOwners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RP_Policy" Association="PTModel.FK_RP_Policy">
+            <End Role="Policy" EntitySet="Policies" />
+            <End Role="ReleasePolicy" EntitySet="ReleasePolicies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rel_Schedule" Association="PTModel.FK_Rel_Schedule">
+            <End Role="Schedule" EntitySet="Schedules" />
+            <End Role="Release" EntitySet="Releases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SO_Schedule" Association="PTModel.FK_SO_Schedule">
+            <End Role="Schedule" EntitySet="Schedules" />
+            <End Role="ScheduleOwner" EntitySet="ScheduleOwners" />
+          </AssociationSet>
+          <AssociationSet Name="SchedulePolicy" Association="PTModel.SchedulePolicy">
+            <End Role="Policy" EntitySet="Policies" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="ScheduleRecipGroup" Association="PTModel.ScheduleRecipGroup">
+            <End Role="RecipGroup" EntitySet="RecipGroups" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <EntitySet Name="vOrgAdmins" EntityType="PTModel.vOrgAdmin" />
+          <AssociationSet Name="PolicyFiles" Association="PTModel.PolicyFiles">
+            <End Role="UploadFile" EntitySet="UploadFiles" />
+            <End Role="Policy" EntitySet="Policies" />
+          </AssociationSet>
+          <EntitySet Name="ReleaseRecipients" EntityType="PTModel.ReleaseRecipient" />
+          <AssociationSet Name="FK_RelRecip_Release" Association="PTModel.FK_RelRecip_Release">
+            <End Role="Release" EntitySet="Releases" />
+            <End Role="ReleaseRecipient" EntitySet="ReleaseRecipients" />
+          </AssociationSet>
+          <EntitySet Name="PacketAckFiles" EntityType="PTModel.PacketAckFile" />
+          <AssociationSet Name="FK_RelRecip_Div" Association="PTModel.FK_RelRecip_Div">
+            <End Role="Division" EntitySet="Divisions" />
+            <End Role="ReleaseRecipient" EntitySet="ReleaseRecipients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAF_File" Association="PTModel.FK_PAF_File">
+            <End Role="UploadFile" EntitySet="UploadFiles" />
+            <End Role="PacketAckFile" EntitySet="PacketAckFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAF_ReleaseRecipient" Association="PTModel.FK_PAF_ReleaseRecipient">
+            <End Role="ReleaseRecipient" EntitySet="ReleaseRecipients" />
+            <End Role="PacketAckFile" EntitySet="PacketAckFiles" />
+          </AssociationSet>
+          <EntitySet Name="ReleaseNotices" EntityType="PTModel.ReleaseNotice" />
+          <AssociationSet Name="FK_OAN_RelNotice" Association="PTModel.FK_OAN_RelNotice">
+            <End Role="ReleaseNotice" EntitySet="ReleaseNotices" />
+            <End Role="OrgAdminNotice" EntitySet="OrgAdminNotices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RN_RelNotice" Association="PTModel.FK_RN_RelNotice">
+            <End Role="ReleaseNotice" EntitySet="ReleaseNotices" />
+            <End Role="RecipientNotice" EntitySet="RecipientNotices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RelN_Release" Association="PTModel.FK_RelN_Release">
+            <End Role="Release" EntitySet="Releases" />
+            <End Role="ReleaseNotice" EntitySet="ReleaseNotices" />
+          </AssociationSet>
+          <EntitySet Name="vPackets" EntityType="PTModel.vPacket" />
+          </EntityContainer>
+        <EntityType Name="Bureau">
+          <Key>
+            <PropertyRef Name="BurCode" />
+          </Key>
+          <Property Name="BurCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BurDesc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DeptCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Disabled" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+          <Property Name="LastUpdateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Department" Relationship="PTModel.FK_Bur_Dept" FromRole="Bureau" ToRole="Department" />
+          <NavigationProperty Name="Divisions" Relationship="PTModel.FK_Div_Bur" FromRole="Bureau" ToRole="Division" />
+        </EntityType>
+        <EntityType Name="Classification">
+          <Key>
+            <PropertyRef Name="ClassCode" />
+          </Key>
+          <Property Name="ClassCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClassDesc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ClassType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Disabled" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+          <Property Name="LastUpdateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RecipGroups" Relationship="PTModel.RecipGroupClasses" FromRole="Classification" ToRole="RecipGroup" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DeptCode" />
+          </Key>
+          <Property Name="DeptCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DeptDesc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FamisOrgCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ADOU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DefaultUserGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Disabled" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+          <Property Name="LastUpdateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bureaus" Relationship="PTModel.FK_Bur_Dept" FromRole="Department" ToRole="Bureau" />
+        </EntityType>
+        <EntityType Name="Division">
+          <Key>
+            <PropertyRef Name="DivCode" />
+          </Key>
+          <Property Name="DivCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DivDesc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BurCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CMDept" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PersUnitCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FamisOrg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FamisDefaultIndex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Disabled" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+          <Property Name="LastUpdateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bureau" Relationship="PTModel.FK_Div_Bur" FromRole="Division" ToRole="Bureau" />
+          <NavigationProperty Name="ReleaseRecipients" Relationship="PTModel.FK_RelRecip_Div" FromRole="Division" ToRole="ReleaseRecipient" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Suffix" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrgCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClassCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HireDate" Type="DateTime" Precision="0" />
+          <Property Name="Disabled" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+          <NavigationProperty Name="RecipGroups" Relationship="PTModel.RecipGroupMembers" FromRole="Employee" ToRole="RecipGroup" />
+        </EntityType>
+        <EntityType Name="UserOrg">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="OrgCode" />
+          </Key>
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrgCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AccessLevel" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+          <Property Name="LastUpdateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AppUser" Relationship="PTModel.FK_UserOrgs_AppUsers" FromRole="UserOrg" ToRole="AppUser" />
+        </EntityType>
+        <EntityType Name="vEmployee">
+          <Key>
+            <PropertyRef Name="EmpId" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="OrgCode" />
+            <PropertyRef Name="ClassCode" />
+            <PropertyRef Name="Disabled" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastUpdateDT" />
+          </Key>
+          <Property Name="EmpId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Suffix" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrgCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClassCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HireDate" Type="DateTime" Precision="0" />
+          <Property Name="Disabled" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DeptDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BurDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OrgDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ClassDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vOrganization">
+          <Key>
+            <PropertyRef Name="OrgCode" />
+            <PropertyRef Name="OrgDesc" />
+            <PropertyRef Name="Disabled" />
+          </Key>
+          <Property Name="OrgCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrgDesc" Type="String" Nullable="false" MaxLength="153" FixedLength="false" Unicode="false" />
+          <Property Name="Disabled" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_UserOrgs_AppUsers">
+          <End Type="PTModel.AppUser" Role="AppUser" Multiplicity="1" />
+          <End Type="PTModel.UserOrg" Role="UserOrg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppUser">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserOrg">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bur_Dept">
+          <End Type="PTModel.Department" Role="Department" Multiplicity="1" />
+          <End Type="PTModel.Bureau" Role="Bureau" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DeptCode" />
+            </Principal>
+            <Dependent Role="Bureau">
+              <PropertyRef Name="DeptCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Div_Bur">
+          <End Type="PTModel.Bureau" Role="Bureau" Multiplicity="1" />
+          <End Type="PTModel.Division" Role="Division" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bureau">
+              <PropertyRef Name="BurCode" />
+            </Principal>
+            <Dependent Role="Division">
+              <PropertyRef Name="BurCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OrgAdminNotice">
+          <Key>
+            <PropertyRef Name="ReleaseNoticeId" />
+          </Key>
+          <Property Name="ReleaseNoticeId" Type="Int32" Nullable="false" />
+          <Property Name="From" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="To" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Subject" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SentDT" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ReleaseNotice" Relationship="PTModel.FK_OAN_RelNotice" FromRole="OrgAdminNotice" ToRole="ReleaseNotice" />
+        </EntityType>
+        <EntityType Name="PolicyOwner">
+          <Key>
+            <PropertyRef Name="PolicyId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="PolicyId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Policy" Relationship="PTModel.FK_PO_Policy" FromRole="PolicyOwner" ToRole="Policy" />
+        </EntityType>
+        <EntityType Name="RecipGroupOrg">
+          <Key>
+            <PropertyRef Name="RecipGroupId" />
+            <PropertyRef Name="OrgCode" />
+          </Key>
+          <Property Name="RecipGroupId" Type="Int32" Nullable="false" />
+          <Property Name="OrgCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RecipGroup" Relationship="PTModel.FK_RGO_RecipGroup" FromRole="RecipGroupOrg" ToRole="RecipGroup" />
+        </EntityType>
+        <EntityType Name="RecipGroupOwner">
+          <Key>
+            <PropertyRef Name="RecipGroupId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="RecipGroupId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RecipGroup" Relationship="PTModel.FK_RO_RecipGroup" FromRole="RecipGroupOwner" ToRole="RecipGroup" />
+        </EntityType>
+        <EntityType Name="RecipientNotice">
+          <Key>
+            <PropertyRef Name="ReleaseNoticeId" />
+            <PropertyRef Name="RecipientId" />
+          </Key>
+          <Property Name="ReleaseNoticeId" Type="Int32" Nullable="false" />
+          <Property Name="RecipientId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="From" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="To" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Subject" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SentDT" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ReleaseNotice" Relationship="PTModel.FK_RN_RelNotice" FromRole="RecipientNotice" ToRole="ReleaseNotice" />
+        </EntityType>
+        <EntityType Name="ReleasePolicy">
+          <Key>
+            <PropertyRef Name="ReleaseId" />
+            <PropertyRef Name="PolicyId" />
+          </Key>
+          <Property Name="ReleaseId" Type="Int32" Nullable="false" />
+          <Property Name="PolicyId" Type="Int32" Nullable="false" />
+          <Property Name="PolicyName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PolicyDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShowDisclaimer" Type="Boolean" Nullable="false" />
+          <Property Name="Disclaimer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Release" Relationship="PTModel.FK_RP_Release" FromRole="ReleasePolicy" ToRole="Release" />
+          <NavigationProperty Name="UploadFiles" Relationship="PTModel.ReleasePolicyFiles" FromRole="ReleasePolicy" ToRole="UploadFile" />
+          <NavigationProperty Name="Policy" Relationship="PTModel.FK_RP_Policy" FromRole="ReleasePolicy" ToRole="Policy" />
+        </EntityType>
+        <EntityType Name="Release">
+          <Key>
+            <PropertyRef Name="ReleaseId" />
+          </Key>
+          <Property Name="ReleaseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScheduleId" Type="Int32" Nullable="false" />
+          <Property Name="ReleaseDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DeadlineDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="To" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="From" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Disclaimer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+          <Property Name="LastUpdateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ReleasePolicies" Relationship="PTModel.FK_RP_Release" FromRole="Release" ToRole="ReleasePolicy" />
+          <NavigationProperty Name="Schedule" Relationship="PTModel.FK_Rel_Schedule" FromRole="Release" ToRole="Schedule" />
+          <NavigationProperty Name="ReleaseRecipients" Relationship="PTModel.FK_RelRecip_Release" FromRole="Release" ToRole="ReleaseRecipient" />
+          <NavigationProperty Name="ReleaseNotices" Relationship="PTModel.FK_RelN_Release" FromRole="Release" ToRole="ReleaseNotice" />
+        </EntityType>
+        <EntityType Name="ScheduleOwner">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ScheduleId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Schedule" Relationship="PTModel.FK_SO_Schedule" FromRole="ScheduleOwner" ToRole="Schedule" />
+        </EntityType>
+        <EntityType Name="UploadFile">
+          <Key>
+            <PropertyRef Name="FileId" />
+          </Key>
+          <Property Name="FileId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FileData" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="OriginalName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ContentType" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Length" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ReleasePolicies" Relationship="PTModel.ReleasePolicyFiles" FromRole="UploadFile" ToRole="ReleasePolicy" />
+          <NavigationProperty Name="Policies" Relationship="PTModel.PolicyFiles" FromRole="UploadFile" ToRole="Policy" />
+          <NavigationProperty Name="PacketAckFiles" Relationship="PTModel.FK_PAF_File" FromRole="UploadFile" ToRole="PacketAckFile" />
+        </EntityType>
+        <Association Name="FK_RP_Release">
+          <End Type="PTModel.Release" Role="Release" Multiplicity="1" />
+          <End Type="PTModel.ReleasePolicy" Role="ReleasePolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Release">
+              <PropertyRef Name="ReleaseId" />
+            </Principal>
+            <Dependent Role="ReleasePolicy">
+              <PropertyRef Name="ReleaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ReleasePolicyFiles">
+          <End Type="PTModel.UploadFile" Role="UploadFile" Multiplicity="*" />
+          <End Type="PTModel.ReleasePolicy" Role="ReleasePolicy" Multiplicity="*" />
+        </Association>
+        <EntityType Name="RecipGroup">
+          <Key>
+            <PropertyRef Name="RecipGroupId" />
+          </Key>
+          <Property Name="RecipGroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RecipGroupType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ShareType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DeptCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Disabled" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+          <Property Name="LastUpdateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RecipGroupOrgs" Relationship="PTModel.FK_RGO_RecipGroup" FromRole="RecipGroup" ToRole="RecipGroupOrg" />
+          <NavigationProperty Name="RecipGroupOwners" Relationship="PTModel.FK_RO_RecipGroup" FromRole="RecipGroup" ToRole="RecipGroupOwner" />
+          <NavigationProperty Name="Classifications" Relationship="PTModel.RecipGroupClasses" FromRole="RecipGroup" ToRole="Classification" />
+          <NavigationProperty Name="Employees" Relationship="PTModel.RecipGroupMembers" FromRole="RecipGroup" ToRole="Employee" />
+          <NavigationProperty Name="Schedules" Relationship="PTModel.ScheduleRecipGroup" FromRole="RecipGroup" ToRole="Schedule" />
+        </EntityType>
+        <Association Name="FK_RGO_RecipGroup">
+          <End Type="PTModel.RecipGroup" Role="RecipGroup" Multiplicity="1" />
+          <End Type="PTModel.RecipGroupOrg" Role="RecipGroupOrg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipGroup">
+              <PropertyRef Name="RecipGroupId" />
+            </Principal>
+            <Dependent Role="RecipGroupOrg">
+              <PropertyRef Name="RecipGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RO_RecipGroup">
+          <End Type="PTModel.RecipGroup" Role="RecipGroup" Multiplicity="1" />
+          <End Type="PTModel.RecipGroupOwner" Role="RecipGroupOwner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipGroup">
+              <PropertyRef Name="RecipGroupId" />
+            </Principal>
+            <Dependent Role="RecipGroupOwner">
+              <PropertyRef Name="RecipGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RecipGroupClasses">
+          <End Type="PTModel.Classification" Role="Classification" Multiplicity="*" />
+          <End Type="PTModel.RecipGroup" Role="RecipGroup" Multiplicity="*" />
+        </Association>
+        <Association Name="RecipGroupMembers">
+          <End Type="PTModel.Employee" Role="Employee" Multiplicity="*" />
+          <End Type="PTModel.RecipGroup" Role="RecipGroup" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Policy">
+          <Key>
+            <PropertyRef Name="PolicyId" />
+          </Key>
+          <Property Name="PolicyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PolicyName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PolicyDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShowDisclaimer" Type="Boolean" Nullable="false" />
+          <Property Name="Disclaimer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShareType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DeptCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Disabled" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+          <Property Name="LastUpdateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PolicyOwners" Relationship="PTModel.FK_PO_Policy" FromRole="Policy" ToRole="PolicyOwner" />
+          <NavigationProperty Name="ReleasePolicies" Relationship="PTModel.FK_RP_Policy" FromRole="Policy" ToRole="ReleasePolicy" />
+          <NavigationProperty Name="Schedules" Relationship="PTModel.SchedulePolicy" FromRole="Policy" ToRole="Schedule" />
+          <NavigationProperty Name="UploadFiles" Relationship="PTModel.PolicyFiles" FromRole="Policy" ToRole="UploadFile" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+          </Key>
+          <Property Name="ScheduleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScheduleName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ScheduleDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Frequency" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RepeatMonth" Type="Int16" />
+          <Property Name="RepeatDay" Type="Int16" />
+          <Property Name="FixedReleaseDate" Type="DateTime" Precision="0" />
+          <Property Name="DaysToDeadline" Type="Int16" Nullable="false" />
+          <Property Name="DaysToReminder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="To" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="From" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Disclaimer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Disabled" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+          <Property Name="LastUpdateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Releases" Relationship="PTModel.FK_Rel_Schedule" FromRole="Schedule" ToRole="Release" />
+          <NavigationProperty Name="ScheduleOwners" Relationship="PTModel.FK_SO_Schedule" FromRole="Schedule" ToRole="ScheduleOwner" />
+          <NavigationProperty Name="Policies" Relationship="PTModel.SchedulePolicy" FromRole="Schedule" ToRole="Policy" />
+          <NavigationProperty Name="RecipGroups" Relationship="PTModel.ScheduleRecipGroup" FromRole="Schedule" ToRole="RecipGroup" />
+        </EntityType>
+        <Association Name="FK_PO_Policy">
+          <End Type="PTModel.Policy" Role="Policy" Multiplicity="1" />
+          <End Type="PTModel.PolicyOwner" Role="PolicyOwner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Policy">
+              <PropertyRef Name="PolicyId" />
+            </Principal>
+            <Dependent Role="PolicyOwner">
+              <PropertyRef Name="PolicyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RP_Policy">
+          <End Type="PTModel.Policy" Role="Policy" Multiplicity="1" />
+          <End Type="PTModel.ReleasePolicy" Role="ReleasePolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Policy">
+              <PropertyRef Name="PolicyId" />
+            </Principal>
+            <Dependent Role="ReleasePolicy">
+              <PropertyRef Name="PolicyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rel_Schedule">
+          <End Type="PTModel.Schedule" Role="Schedule" Multiplicity="1" />
+          <End Type="PTModel.Release" Role="Release" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="ScheduleId" />
+            </Principal>
+            <Dependent Role="Release">
+              <PropertyRef Name="ScheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SO_Schedule">
+          <End Type="PTModel.Schedule" Role="Schedule" Multiplicity="1" />
+          <End Type="PTModel.ScheduleOwner" Role="ScheduleOwner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="ScheduleId" />
+            </Principal>
+            <Dependent Role="ScheduleOwner">
+              <PropertyRef Name="ScheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SchedulePolicy">
+          <End Type="PTModel.Policy" Role="Policy" Multiplicity="*" />
+          <End Type="PTModel.Schedule" Role="Schedule" Multiplicity="*" />
+        </Association>
+        <Association Name="ScheduleRecipGroup">
+          <End Type="PTModel.RecipGroup" Role="RecipGroup" Multiplicity="*" />
+          <End Type="PTModel.Schedule" Role="Schedule" Multiplicity="*" />
+        </Association>
+        <EntityType Name="vOrgAdmin">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="AccessLevel" />
+            <PropertyRef Name="OrgCode" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="CreateUser" />
+            <PropertyRef Name="LastUpdateDT" />
+            <PropertyRef Name="LastUpdateUser" />
+          </Key>
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AccessLevel" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OrgCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrgDesc" Type="String" MaxLength="153" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="PolicyFiles">
+          <End Type="PTModel.UploadFile" Role="UploadFile" Multiplicity="*" />
+          <End Type="PTModel.Policy" Role="Policy" Multiplicity="*" />
+        </Association>
+        <EntityType Name="ReleaseRecipient">
+          <Key>
+            <PropertyRef Name="ReleaseId" />
+            <PropertyRef Name="RecipientId" />
+          </Key>
+          <Property Name="ReleaseId" Type="Int32" Nullable="false" />
+          <Property Name="RecipientId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RecipientName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RecipientEmail" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="OrgCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AckDT" Type="DateTime" Precision="3" />
+          <Property Name="AckUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AckClientIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RecipientViewDT" Type="DateTime" Precision="3" />
+          <Property Name="RecipientViewClientIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdminMemo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Exception" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+          <Property Name="LastUpdateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Release" Relationship="PTModel.FK_RelRecip_Release" FromRole="ReleaseRecipient" ToRole="Release" />
+          <NavigationProperty Name="Division" Relationship="PTModel.FK_RelRecip_Div" FromRole="ReleaseRecipient" ToRole="Division" />
+          <NavigationProperty Name="PacketAckFiles" Relationship="PTModel.FK_PAF_ReleaseRecipient" FromRole="ReleaseRecipient" ToRole="PacketAckFile" />
+          <Property Name="AckAuthType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_RelRecip_Release">
+          <End Type="PTModel.Release" Role="Release" Multiplicity="1" />
+          <End Type="PTModel.ReleaseRecipient" Role="ReleaseRecipient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Release">
+              <PropertyRef Name="ReleaseId" />
+            </Principal>
+            <Dependent Role="ReleaseRecipient">
+              <PropertyRef Name="ReleaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PacketAckFile">
+          <Key>
+            <PropertyRef Name="ReleaseId" />
+            <PropertyRef Name="RecipientId" />
+            <PropertyRef Name="FileId" />
+          </Key>
+          <Property Name="ReleaseId" Type="Int32" Nullable="false" />
+          <Property Name="RecipientId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Disabled" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="UploadFile" Relationship="PTModel.FK_PAF_File" FromRole="PacketAckFile" ToRole="UploadFile" />
+          <NavigationProperty Name="ReleaseRecipient" Relationship="PTModel.FK_PAF_ReleaseRecipient" FromRole="PacketAckFile" ToRole="ReleaseRecipient" />
+        </EntityType>
+        <Association Name="FK_RelRecip_Div">
+          <End Type="PTModel.Division" Role="Division" Multiplicity="0..1" />
+          <End Type="PTModel.ReleaseRecipient" Role="ReleaseRecipient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Division">
+              <PropertyRef Name="DivCode" />
+            </Principal>
+            <Dependent Role="ReleaseRecipient">
+              <PropertyRef Name="OrgCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAF_File">
+          <End Type="PTModel.UploadFile" Role="UploadFile" Multiplicity="1" />
+          <End Type="PTModel.PacketAckFile" Role="PacketAckFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UploadFile">
+              <PropertyRef Name="FileId" />
+            </Principal>
+            <Dependent Role="PacketAckFile">
+              <PropertyRef Name="FileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAF_ReleaseRecipient">
+          <End Type="PTModel.ReleaseRecipient" Role="ReleaseRecipient" Multiplicity="1" />
+          <End Type="PTModel.PacketAckFile" Role="PacketAckFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReleaseRecipient">
+              <PropertyRef Name="ReleaseId" />
+              <PropertyRef Name="RecipientId" />
+            </Principal>
+            <Dependent Role="PacketAckFile">
+              <PropertyRef Name="ReleaseId" />
+              <PropertyRef Name="RecipientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ReleaseNotice">
+          <Key>
+            <PropertyRef Name="ReleaseNoticeId" />
+          </Key>
+          <Property Name="ReleaseNoticeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReleaseId" Type="Int32" Nullable="false" />
+          <Property Name="NoticeType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NoticeDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="StartDT" Type="DateTime" Precision="3" />
+          <Property Name="CompleteDT" Type="DateTime" Precision="3" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+          <Property Name="LastUpdateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OrgAdminNotice" Relationship="PTModel.FK_OAN_RelNotice" FromRole="ReleaseNotice" ToRole="OrgAdminNotice" />
+          <NavigationProperty Name="RecipientNotices" Relationship="PTModel.FK_RN_RelNotice" FromRole="ReleaseNotice" ToRole="RecipientNotice" />
+          <NavigationProperty Name="Release" Relationship="PTModel.FK_RelN_Release" FromRole="ReleaseNotice" ToRole="Release" />
+        </EntityType>
+        <Association Name="FK_OAN_RelNotice">
+          <End Type="PTModel.ReleaseNotice" Role="ReleaseNotice" Multiplicity="1" />
+          <End Type="PTModel.OrgAdminNotice" Role="OrgAdminNotice" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ReleaseNotice">
+              <PropertyRef Name="ReleaseNoticeId" />
+            </Principal>
+            <Dependent Role="OrgAdminNotice">
+              <PropertyRef Name="ReleaseNoticeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RN_RelNotice">
+          <End Type="PTModel.ReleaseNotice" Role="ReleaseNotice" Multiplicity="1" />
+          <End Type="PTModel.RecipientNotice" Role="RecipientNotice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReleaseNotice">
+              <PropertyRef Name="ReleaseNoticeId" />
+            </Principal>
+            <Dependent Role="RecipientNotice">
+              <PropertyRef Name="ReleaseNoticeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RelN_Release">
+          <End Type="PTModel.Release" Role="Release" Multiplicity="1" />
+          <End Type="PTModel.ReleaseNotice" Role="ReleaseNotice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Release">
+              <PropertyRef Name="ReleaseId" />
+            </Principal>
+            <Dependent Role="ReleaseNotice">
+              <PropertyRef Name="ReleaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vPacket">
+          <Key>
+            <PropertyRef Name="ReleaseId" />
+            <PropertyRef Name="RecipientId" />
+            <PropertyRef Name="RecipientName" />
+            <PropertyRef Name="ReleaseDate" />
+            <PropertyRef Name="DeadlineDate" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="CreateUser" />
+            <PropertyRef Name="LastUpdateDT" />
+            <PropertyRef Name="LastUpdateUser" />
+          </Key>
+          <Property Name="ReleaseId" Type="Int32" Nullable="false" />
+          <Property Name="RecipientId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RecipientName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RecipientEmail" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="OrgCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrgDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ClassCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClassDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AckDT" Type="DateTime" Precision="3" />
+          <Property Name="AckUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AckClientIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AckAuthType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RecipientViewDT" Type="DateTime" Precision="3" />
+          <Property Name="RecipientViewClientIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdminMemo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Exception" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ReleaseDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DeadlineDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="To" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="From" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AckFilesCount" Type="Int32" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PTModelStoreContainer" CdmEntityContainer="PTEntities">
+          <EntitySetMapping Name="AppUsers">
+            <EntityTypeMapping TypeName="PTModel.AppUser">
+              <MappingFragment StoreEntitySet="AppUsers">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommonCodes">
+            <EntityTypeMapping TypeName="PTModel.CommonCode">
+              <MappingFragment StoreEntitySet="CommonCodes">
+                <ScalarProperty Name="CmId" ColumnName="CmId" />
+                <ScalarProperty Name="CmCatg" ColumnName="CmCatg" />
+                <ScalarProperty Name="CmCode" ColumnName="CmCode" />
+                <ScalarProperty Name="CmCodeDesc" ColumnName="CmCodeDesc" />
+                <ScalarProperty Name="DispOrder" ColumnName="DispOrder" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Configurations">
+            <EntityTypeMapping TypeName="PTModel.Configuration">
+              <MappingFragment StoreEntitySet="Configurations">
+                <ScalarProperty Name="ConfigKey" ColumnName="ConfigKey" />
+                <ScalarProperty Name="ConfigDesc" ColumnName="ConfigDesc" />
+                <ScalarProperty Name="ConfigValue" ColumnName="ConfigValue" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="PTModel.Message">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="MsgNo" ColumnName="MsgNo" />
+                <ScalarProperty Name="MsgText" ColumnName="MsgText" />
+                <ScalarProperty Name="MsgTitle" ColumnName="MsgTitle" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notices">
+            <EntityTypeMapping TypeName="PTModel.Notice">
+              <MappingFragment StoreEntitySet="Notices">
+                <ScalarProperty Name="NoticeId" ColumnName="NoticeId" />
+                <ScalarProperty Name="NoticeTitle" ColumnName="NoticeTitle" />
+                <ScalarProperty Name="NoticeText" ColumnName="NoticeText" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="DispOrder" ColumnName="DispOrder" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Preferences">
+            <EntityTypeMapping TypeName="PTModel.Preference">
+              <MappingFragment StoreEntitySet="Preferences">
+                <ScalarProperty Name="Catg" ColumnName="Catg" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Val" ColumnName="Val" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USStates">
+            <EntityTypeMapping TypeName="PTModel.USState">
+              <MappingFragment StoreEntitySet="USStates">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="USPS" ColumnName="USPS" />
+                <ScalarProperty Name="OldGPO" ColumnName="OldGPO" />
+                <ScalarProperty Name="AP" ColumnName="AP" />
+                <ScalarProperty Name="FIPS" ColumnName="FIPS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bureaus">
+            <EntityTypeMapping TypeName="PTModel.Bureau">
+              <MappingFragment StoreEntitySet="Bureaus">
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+                <ScalarProperty Name="BurDesc" ColumnName="BurDesc" />
+                <ScalarProperty Name="BurCode" ColumnName="BurCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Classifications">
+            <EntityTypeMapping TypeName="PTModel.Classification">
+              <MappingFragment StoreEntitySet="Classifications">
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="ClassType" ColumnName="ClassType" />
+                <ScalarProperty Name="ClassDesc" ColumnName="ClassDesc" />
+                <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="PTModel.Department">
+              <MappingFragment StoreEntitySet="Departments">
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="DefaultUserGroup" ColumnName="DefaultUserGroup" />
+                <ScalarProperty Name="ADOU" ColumnName="ADOU" />
+                <ScalarProperty Name="FamisOrgCode" ColumnName="FamisOrgCode" />
+                <ScalarProperty Name="DeptDesc" ColumnName="DeptDesc" />
+                <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Divisions">
+            <EntityTypeMapping TypeName="PTModel.Division">
+              <MappingFragment StoreEntitySet="Divisions">
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="FamisDefaultIndex" ColumnName="FamisDefaultIndex" />
+                <ScalarProperty Name="FamisOrg" ColumnName="FamisOrg" />
+                <ScalarProperty Name="PersUnitCode" ColumnName="PersUnitCode" />
+                <ScalarProperty Name="CMDept" ColumnName="CMDept" />
+                <ScalarProperty Name="BurCode" ColumnName="BurCode" />
+                <ScalarProperty Name="DivDesc" ColumnName="DivDesc" />
+                <ScalarProperty Name="DivCode" ColumnName="DivCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="PTModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+                <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
+                <ScalarProperty Name="OrgCode" ColumnName="OrgCode" />
+                <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PIN" ColumnName="PIN" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserOrgs">
+            <EntityTypeMapping TypeName="PTModel.UserOrg">
+              <MappingFragment StoreEntitySet="UserOrgs">
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+                <ScalarProperty Name="OrgCode" ColumnName="OrgCode" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vEmployees">
+            <EntityTypeMapping TypeName="PTModel.vEmployee">
+              <MappingFragment StoreEntitySet="vEmployees">
+                <ScalarProperty Name="ClassDesc" ColumnName="ClassDesc" />
+                <ScalarProperty Name="OrgDesc" ColumnName="OrgDesc" />
+                <ScalarProperty Name="BurDesc" ColumnName="BurDesc" />
+                <ScalarProperty Name="DeptDesc" ColumnName="DeptDesc" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+                <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
+                <ScalarProperty Name="OrgCode" ColumnName="OrgCode" />
+                <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PIN" ColumnName="PIN" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vOrganizations">
+            <EntityTypeMapping TypeName="PTModel.vOrganization">
+              <MappingFragment StoreEntitySet="vOrganizations">
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="OrgDesc" ColumnName="OrgDesc" />
+                <ScalarProperty Name="OrgCode" ColumnName="OrgCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrgAdminNotices">
+            <EntityTypeMapping TypeName="PTModel.OrgAdminNotice">
+              <MappingFragment StoreEntitySet="OrgAdminNotices">
+                <ScalarProperty Name="SentDT" ColumnName="SentDT" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="To" ColumnName="To" />
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="ReleaseNoticeId" ColumnName="ReleaseNoticeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PolicyOwners">
+            <EntityTypeMapping TypeName="PTModel.PolicyOwner">
+              <MappingFragment StoreEntitySet="PolicyOwners">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PolicyId" ColumnName="PolicyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipGroupOrgs">
+            <EntityTypeMapping TypeName="PTModel.RecipGroupOrg">
+              <MappingFragment StoreEntitySet="RecipGroupOrgs">
+                <ScalarProperty Name="OrgCode" ColumnName="OrgCode" />
+                <ScalarProperty Name="RecipGroupId" ColumnName="RecipGroupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipGroupOwners">
+            <EntityTypeMapping TypeName="PTModel.RecipGroupOwner">
+              <MappingFragment StoreEntitySet="RecipGroupOwners">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RecipGroupId" ColumnName="RecipGroupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipientNotices">
+            <EntityTypeMapping TypeName="PTModel.RecipientNotice">
+              <MappingFragment StoreEntitySet="RecipientNotices">
+                <ScalarProperty Name="SentDT" ColumnName="SentDT" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="To" ColumnName="To" />
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="RecipientId" ColumnName="RecipientId" />
+                <ScalarProperty Name="ReleaseNoticeId" ColumnName="ReleaseNoticeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReleasePolicies">
+            <EntityTypeMapping TypeName="PTModel.ReleasePolicy">
+              <MappingFragment StoreEntitySet="ReleasePolicy">
+                <ScalarProperty Name="Disclaimer" ColumnName="Disclaimer" />
+                <ScalarProperty Name="ShowDisclaimer" ColumnName="ShowDisclaimer" />
+                <ScalarProperty Name="PolicyDesc" ColumnName="PolicyDesc" />
+                <ScalarProperty Name="PolicyName" ColumnName="PolicyName" />
+                <ScalarProperty Name="PolicyId" ColumnName="PolicyId" />
+                <ScalarProperty Name="ReleaseId" ColumnName="ReleaseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Releases">
+            <EntityTypeMapping TypeName="PTModel.Release">
+              <MappingFragment StoreEntitySet="Releases">
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="Disclaimer" ColumnName="Disclaimer" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="To" ColumnName="To" />
+                <ScalarProperty Name="DeadlineDate" ColumnName="DeadlineDate" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+                <ScalarProperty Name="ReleaseId" ColumnName="ReleaseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScheduleOwners">
+            <EntityTypeMapping TypeName="PTModel.ScheduleOwner">
+              <MappingFragment StoreEntitySet="ScheduleOwners">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UploadFiles">
+            <EntityTypeMapping TypeName="PTModel.UploadFile">
+              <MappingFragment StoreEntitySet="UploadFiles">
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+                <ScalarProperty Name="OriginalName" ColumnName="OriginalName" />
+                <ScalarProperty Name="FileData" ColumnName="FileData" />
+                <ScalarProperty Name="FileUrl" ColumnName="FileUrl" />
+                <ScalarProperty Name="FileId" ColumnName="FileId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ReleasePolicyFiles" TypeName="PTModel.ReleasePolicyFiles" StoreEntitySet="ReleasePolicyFiles">
+            <EndProperty Name="ReleasePolicy">
+              <ScalarProperty Name="PolicyId" ColumnName="PolicyId" />
+              <ScalarProperty Name="ReleaseId" ColumnName="ReleaseId" />
+            </EndProperty>
+            <EndProperty Name="UploadFile">
+              <ScalarProperty Name="FileId" ColumnName="FileId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="RecipGroups">
+            <EntityTypeMapping TypeName="PTModel.RecipGroup">
+              <MappingFragment StoreEntitySet="RecipGroups">
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+                <ScalarProperty Name="ShareType" ColumnName="ShareType" />
+                <ScalarProperty Name="RecipGroupType" ColumnName="RecipGroupType" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="RecipGroupId" ColumnName="RecipGroupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="RecipGroupClasses" TypeName="PTModel.RecipGroupClasses" StoreEntitySet="RecipGroupClasses">
+            <EndProperty Name="RecipGroup">
+              <ScalarProperty Name="RecipGroupId" ColumnName="RecipGroupId" />
+            </EndProperty>
+            <EndProperty Name="Classification">
+              <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="RecipGroupMembers" TypeName="PTModel.RecipGroupMembers" StoreEntitySet="RecipGroupMembers">
+            <EndProperty Name="RecipGroup">
+              <ScalarProperty Name="RecipGroupId" ColumnName="RecipGroupId" />
+            </EndProperty>
+            <EndProperty Name="Employee">
+              <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Policies">
+            <EntityTypeMapping TypeName="PTModel.Policy">
+              <MappingFragment StoreEntitySet="Policies">
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+                <ScalarProperty Name="ShareType" ColumnName="ShareType" />
+                <ScalarProperty Name="Disclaimer" ColumnName="Disclaimer" />
+                <ScalarProperty Name="ShowDisclaimer" ColumnName="ShowDisclaimer" />
+                <ScalarProperty Name="PolicyDesc" ColumnName="PolicyDesc" />
+                <ScalarProperty Name="PolicyName" ColumnName="PolicyName" />
+                <ScalarProperty Name="PolicyId" ColumnName="PolicyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedules">
+            <EntityTypeMapping TypeName="PTModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedules">
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="Disclaimer" ColumnName="Disclaimer" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="To" ColumnName="To" />
+                <ScalarProperty Name="DaysToReminder" ColumnName="DaysToReminder" />
+                <ScalarProperty Name="DaysToDeadline" ColumnName="DaysToDeadline" />
+                <ScalarProperty Name="FixedReleaseDate" ColumnName="FixedReleaseDate" />
+                <ScalarProperty Name="RepeatDay" ColumnName="RepeatDay" />
+                <ScalarProperty Name="RepeatMonth" ColumnName="RepeatMonth" />
+                <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+                <ScalarProperty Name="ScheduleDesc" ColumnName="ScheduleDesc" />
+                <ScalarProperty Name="ScheduleName" ColumnName="ScheduleName" />
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="SchedulePolicy" TypeName="PTModel.SchedulePolicy" StoreEntitySet="SchedulePolicy">
+            <EndProperty Name="Schedule">
+              <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+            </EndProperty>
+            <EndProperty Name="Policy">
+              <ScalarProperty Name="PolicyId" ColumnName="PolicyId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ScheduleRecipGroup" TypeName="PTModel.ScheduleRecipGroup" StoreEntitySet="ScheduleRecipGroup">
+            <EndProperty Name="Schedule">
+              <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+            </EndProperty>
+            <EndProperty Name="RecipGroup">
+              <ScalarProperty Name="RecipGroupId" ColumnName="RecipGroupId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="vOrgAdmins">
+            <EntityTypeMapping TypeName="PTModel.vOrgAdmin">
+              <MappingFragment StoreEntitySet="vOrgAdmins">
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="OrgDesc" ColumnName="OrgDesc" />
+                <ScalarProperty Name="OrgCode" ColumnName="OrgCode" />
+                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="PolicyFiles" TypeName="PTModel.PolicyFiles" StoreEntitySet="PolicyFiles">
+            <EndProperty Name="Policy">
+              <ScalarProperty Name="PolicyId" ColumnName="PolicyId" />
+            </EndProperty>
+            <EndProperty Name="UploadFile">
+              <ScalarProperty Name="FileId" ColumnName="FileId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="ReleaseRecipients">
+            <EntityTypeMapping TypeName="PTModel.ReleaseRecipient">
+              <MappingFragment StoreEntitySet="ReleaseRecipients">
+                <ScalarProperty Name="AckAuthType" ColumnName="AckAuthType" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="AdminMemo" ColumnName="AdminMemo" />
+                <ScalarProperty Name="RecipientViewClientIP" ColumnName="RecipientViewClientIP" />
+                <ScalarProperty Name="RecipientViewDT" ColumnName="RecipientViewDT" />
+                <ScalarProperty Name="AckClientIP" ColumnName="AckClientIP" />
+                <ScalarProperty Name="AckUserId" ColumnName="AckUserId" />
+                <ScalarProperty Name="AckDT" ColumnName="AckDT" />
+                <ScalarProperty Name="OrgCode" ColumnName="OrgCode" />
+                <ScalarProperty Name="RecipientEmail" ColumnName="RecipientEmail" />
+                <ScalarProperty Name="RecipientName" ColumnName="RecipientName" />
+                <ScalarProperty Name="RecipientId" ColumnName="RecipientId" />
+                <ScalarProperty Name="ReleaseId" ColumnName="ReleaseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PacketAckFiles">
+            <EntityTypeMapping TypeName="PTModel.PacketAckFile">
+              <MappingFragment StoreEntitySet="PacketAckFiles">
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="FileId" ColumnName="FileId" />
+                <ScalarProperty Name="RecipientId" ColumnName="RecipientId" />
+                <ScalarProperty Name="ReleaseId" ColumnName="ReleaseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReleaseNotices">
+            <EntityTypeMapping TypeName="PTModel.ReleaseNotice">
+              <MappingFragment StoreEntitySet="ReleaseNotices">
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="CompleteDT" ColumnName="CompleteDT" />
+                <ScalarProperty Name="StartDT" ColumnName="StartDT" />
+                <ScalarProperty Name="NoticeDate" ColumnName="NoticeDate" />
+                <ScalarProperty Name="NoticeType" ColumnName="NoticeType" />
+                <ScalarProperty Name="ReleaseId" ColumnName="ReleaseId" />
+                <ScalarProperty Name="ReleaseNoticeId" ColumnName="ReleaseNoticeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vPackets">
+            <EntityTypeMapping TypeName="PTModel.vPacket">
+              <MappingFragment StoreEntitySet="vPackets">
+                <ScalarProperty Name="AckFilesCount" ColumnName="AckFilesCount" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="To" ColumnName="To" />
+                <ScalarProperty Name="DeadlineDate" ColumnName="DeadlineDate" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="AdminMemo" ColumnName="AdminMemo" />
+                <ScalarProperty Name="RecipientViewClientIP" ColumnName="RecipientViewClientIP" />
+                <ScalarProperty Name="RecipientViewDT" ColumnName="RecipientViewDT" />
+                <ScalarProperty Name="AckAuthType" ColumnName="AckAuthType" />
+                <ScalarProperty Name="AckClientIP" ColumnName="AckClientIP" />
+                <ScalarProperty Name="AckUserId" ColumnName="AckUserId" />
+                <ScalarProperty Name="AckDT" ColumnName="AckDT" />
+                <ScalarProperty Name="ClassDesc" ColumnName="ClassDesc" />
+                <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
+                <ScalarProperty Name="OrgDesc" ColumnName="OrgDesc" />
+                <ScalarProperty Name="OrgCode" ColumnName="OrgCode" />
+                <ScalarProperty Name="RecipientEmail" ColumnName="RecipientEmail" />
+                <ScalarProperty Name="RecipientName" ColumnName="RecipientName" />
+                <ScalarProperty Name="RecipientId" ColumnName="RecipientId" />
+                <ScalarProperty Name="ReleaseId" ColumnName="ReleaseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

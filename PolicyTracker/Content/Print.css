@@ -1,0 +1,69 @@
+﻿@media print {
+    body {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    p, ul, ol, th, td, a, div { font-size: 7pt; }
+    h1 { font-size: 20pt; text-align:center; } 
+    h2 { font-size: 18pt; text-align:center; } 
+    h3 { font-size: 16pt; } 
+    h4 { font-size: 12pt; }
+
+    h1, h2, h3 { margin-top: 10px; margin-bottom: 5px; }
+    h4 { margin: 3px 0 3px 0; }
+
+    h4::before {
+        display: block; 
+        content: " "; 
+        margin-top: 0px; 
+        height: 0px; 
+        visibility: hidden; 
+    } /* https://css-tricks.com/hash-tag-links-padding/ reverse for print */
+
+    abbr[title]:after {
+        display: none !important;
+    }
+
+    .HeaderStyle {
+        background-color: #eeeeee !important;
+    }
+
+    .table > thead > tr > th,
+    .table > tbody > tr > th {
+        background-color: #eeeeee !important;
+    }
+    .table > thead > tr > th, 
+    .table > tbody > tr > th, 
+    .table > tfoot > tr > th, 
+    .table > thead > tr > td, 
+    .table > tbody > tr > td, 
+    .table > tfoot > tr > td {
+        padding: 2px 3px 2px 3px;
+    }
+
+    .no-border {
+        border: none !important;
+    }
+    .no-border > thead > tr > th,
+    .no-border > tbody > tr > th,
+    .no-border > tfoot > tr > th,
+    .no-border > thead > tr > td,
+    .no-border > tbody > tr > td,
+    .no-border > tfoot > tr > td {
+        padding: 0px;
+        border: none !important;
+    }
+
+    .alert { padding: 5px; }
+
+    legend {
+        margin: 3px 0 3px 0;
+        font-size: 12px;
+    }
+
+    .a-group { page-break-inside: avoid; }
+    /*tr { page-break-inside: avoid !important; }*/
+    /*table { page-break-inside: auto !important; }
+    tr, td { page-break-inside: avoid !important; page-break-after: auto !important; }*/
+}

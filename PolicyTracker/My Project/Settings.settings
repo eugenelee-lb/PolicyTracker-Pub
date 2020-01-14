@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="PolicyTracker_Lib_HRWebService_WebService" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://clbtsappdbd/HRWebService4/WebService.asmx</Value>
+    </Setting>
+    <Setting Name="PolicyTracker_CLBEmailService_CLBEmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://clbbitprod01/SearchCLBEMail/Lookup.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

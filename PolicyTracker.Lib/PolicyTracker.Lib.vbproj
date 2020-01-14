@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F4BC4643-7D56-4F76-B605-4964A4FC0584}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PolicyTracker.Lib</RootNamespace>
+    <AssemblyName>PolicyTracker.Lib</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>PolicyTracker.Lib.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>PolicyTracker.Lib.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <OutputPath>bin\Test\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug-FA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug-FA\</OutputPath>
+    <DocumentationFile>PolicyTracker.Lib.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-FA|AnyCPU'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Release-FA\</OutputPath>
+    <DocumentationFile>PolicyTracker.Lib.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Linq.Dynamic">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.2\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLogic\Batch.vb" />
+    <Compile Include="BusinessLogic\PTBL.vb" />
+    <Compile Include="BusinessLogic\SettingsBL.vb" />
+    <Compile Include="DataAccess\AppUser.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\Bureau.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\Classification.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\CommonCode.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\Configuration.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\DataAnnotations\MessageMD.vb" />
+    <Compile Include="DataAccess\Department.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\Division.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\Employee.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\IPTRepository.vb" />
+    <Compile Include="DataAccess\ISettingsRepository.vb" />
+    <Compile Include="DataAccess\Message.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\Notice.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\OrgAdminNotice.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\PacketAckFile.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\Policy.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\PolicyOwner.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\Preference.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\PTModel.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PTModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\PTModel.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PTModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\PTModel.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\PTRepository.vb" />
+    <Compile Include="DataAccess\RecipGroup.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\RecipGroupOrg.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\RecipGroupOwner.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\RecipientNotice.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\Release.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ReleaseNotice.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ReleasePolicy.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ReleaseRecipient.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\Schedule.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ScheduleOwner.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\SettingsRepository.vb" />
+    <Compile Include="DataAccess\UploadFile.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\UserOrg.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\USState.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\vEmployee.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\vOrgAdmin.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\vOrganization.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\vPacket.vb">
+      <DependentUpon>PTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HR\BureauDTO.vb" />
+    <Compile Include="HR\ClassificationDTO.vb" />
+    <Compile Include="HR\DepartmentDTO.vb" />
+    <Compile Include="HR\DivisionDTO.vb" />
+    <Compile Include="HR\EmployeeDTO.vb" />
+    <Compile Include="HR\HRService.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Util\ADHelper.vb" />
+    <Compile Include="Util\CsvExport.vb" />
+    <Compile Include="Util\GlobalLib.vb" />
+    <Compile Include="Web References\CLBEmailService\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\HRWebService\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="DataAccess\PTModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PTModel.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataAccess\PTModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PTModel.edmx</DependentUpon>
+      <LastGenOutput>PTModel.Context.vb</LastGenOutput>
+    </None>
+    <None Include="DataAccess\PTModel.edmx.diagram">
+      <DependentUpon>PTModel.edmx</DependentUpon>
+    </None>
+    <None Include="DataAccess\PTModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PTModel.edmx</DependentUpon>
+      <LastGenOutput>PTModel.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Web References\CLBEmailService\Lookup.wsdl" />
+    <None Include="Web References\CLBEmailService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\HRWebService\HRBur.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\HRWebService\HRClass.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\HRWebService\HRDept.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\HRWebService\HRDiv.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\HRWebService\HREmp.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\HRWebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\HRWebService\WebService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://clbtsappdbd/HRWebService4/WebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\HRWebService\</RelPath>
+      <UpdateFromURL>http://clbtsappdbd/HRWebService4/WebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>PolicyTracker_Lib_HRWebService_WebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://clbmgrweb3.ci.long-beach.ca.us/SearchCLBEMail/Lookup.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CLBEmailService\</RelPath>
+      <UpdateFromURL>https://clbmgrweb3.ci.long-beach.ca.us/SearchCLBEMail/Lookup.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>PolicyTracker_Lib_CLBEmailService_CLBEmail</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\HRWebService\WebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\CLBEmailService\Lookup.disco" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

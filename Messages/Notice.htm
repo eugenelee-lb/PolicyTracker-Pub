@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        .clsTitle {
+            font-family: Arial;
+            font-size: 16px;
+            font-weight: bold;
+            color: Gray;
+        }
+
+        .style1 {
+            text-align: right;
+            font-family: Verdana;
+            font-size: 13px;
+            font-weight: bold;
+            color: #909090;
+        }
+
+        .style2 {
+            text-align: left;
+            font-family: Verdana;
+            font-size: 13px;
+        }
+
+        .wrap-text {
+            white-space: pre-wrap;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            /*margin: 5px 0 5px 0;*/
+        }
+
+        td {
+            border: 1px solid #909090;
+            padding: 3px 3px 3px 3px;
+        }
+
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td class="style1">
+            From:
+        </td>
+        <td class="style2">
+            {From}
+        </td>
+    </tr>
+    <tr>
+        <td class="style1">
+            To:
+        </td>
+        <td class="style2">
+            {To}
+        </td>
+    </tr>
+    <tr>
+        <td class="style1">
+            Subject:
+        </td>
+        <td class="style2">
+            {Subject}
+        </td>
+    </tr>
+    <tr>
+        <td class="style1">
+            Release Date:
+        </td>
+        <td class="style2">
+            {ReleaseDate}
+        </td>
+    </tr>
+    <tr>
+        <td class="style1">
+            Deadline:
+        </td>
+        <td class="style2">
+            {Deadline}
+        </td>
+    </tr>
+</table>
+<br />
+
+<div class="style2">
+	<p style="font-style:italic;">
+		{Disclaimer}
+	</p>
+    <p>
+		{Instruction}<!-- Message# 1011/1012 -->
+    </p>
+    <a href="{URL}" style="color:Red">Click Here</a> 
+</div>
+
+</body>
+</html>

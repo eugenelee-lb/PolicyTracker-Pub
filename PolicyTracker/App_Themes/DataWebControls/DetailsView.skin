@@ -1,0 +1,7 @@
+<asp:DetailsView runat="server" CssClass="DataWebControlStyle" CellPadding="4">
+    <AlternatingRowStyle CssClass="AlternatingRowStyle" />
+    <RowStyle CssClass="RowStyle" />
+    <FieldHeaderStyle CssClass="HeaderStyle" />
+    <CommandRowStyle CssClass="CommandRowStyle" />
+    <EmptyDataRowStyle CssClass="EmptyDataRowStyle" />
+</asp:DetailsView>

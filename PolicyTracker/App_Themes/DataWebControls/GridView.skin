@@ -1,0 +1,10 @@
+<asp:GridView runat="server" CssClass="DataWebControlStyle" CellPadding="4" >
+   <RowStyle CssClass="RowStyle" />
+   <AlternatingRowStyle CssClass="AlternatingRowStyle" />
+   <SelectedRowStyle CssClass="SelectedRowStyle" />
+   <HeaderStyle CssClass="HeaderStyle" />
+   <FooterStyle CssClass="FooterStyle" />
+   <PagerStyle CssClass="PagerRowStyle" />
+   <PagerSettings Mode="NumericFirstLast" PageButtonCount="10" />
+   <EmptyDataRowStyle CssClass="EmptyDataRowStyle" />
+</asp:GridView>

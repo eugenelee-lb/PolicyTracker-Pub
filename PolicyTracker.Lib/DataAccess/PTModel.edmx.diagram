@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1f9d30b883dc471b9f61f25d8c20dd23" Name="Settings">
+        <EntityTypeShape EntityType="PTModel.AppUser" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTModel.CommonCode" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTModel.Configuration" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTModel.Message" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTModel.Notice" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTModel.Preference" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTModel.USState" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+      </Diagram>
+      <Diagram DiagramId="8ce8d5be11f94bf48b92f8eb46608abe" Name="Org" >
+        <EntityTypeShape EntityType="PTModel.Bureau" Width="1.5" PointX="2.5" PointY="0.5" />
+        <EntityTypeShape EntityType="PTModel.Classification" Width="1.5" PointX="6.625" PointY="0.5" />
+        <EntityTypeShape EntityType="PTModel.Department" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="PTModel.Division" Width="1.625" PointX="4.5" PointY="0.5" />
+        <EntityTypeShape EntityType="PTModel.Employee" Width="1.5" PointX="0.5" PointY="4.375" />
+        <EntityTypeShape EntityType="PTModel.UserOrg" Width="1.5" PointX="4.5" PointY="4.375" />
+        <EntityTypeShape EntityType="PTModel.vEmployee" Width="1.5" PointX="2.5" PointY="4.375" />
+        <EntityTypeShape EntityType="PTModel.vOrganization" Width="1.5" PointX="6.5" PointY="4.375" />
+        <AssociationConnector Association="PTModel.FK_Bur_Dept" />
+        <AssociationConnector Association="PTModel.FK_Div_Bur" />
+        <EntityTypeShape EntityType="PTModel.vOrgAdmin" Width="1.5" PointX="6.5" PointY="6.375" />
+      </Diagram>
+      <Diagram DiagramId="d4df331d870f49d4a5f708cc6c65b3c6" Name="PT" >
+        <EntityTypeShape EntityType="PTModel.OrgAdminNotice" Width="1.625" PointX="8.5" PointY="7.75" />
+        <EntityTypeShape EntityType="PTModel.PolicyOwner" Width="1.5" PointX="0.5" PointY="4.125" />
+        <EntityTypeShape EntityType="PTModel.RecipGroupOrg" Width="1.5" PointX="0.5" PointY="8.75" />
+        <EntityTypeShape EntityType="PTModel.RecipGroupOwner" Width="1.625" PointX="0.5" PointY="10.75" />
+        <EntityTypeShape EntityType="PTModel.RecipientNotice" Width="1.5" PointX="8.625" PointY="0.5" />
+        <EntityTypeShape EntityType="PTModel.ReleasePolicy" Width="1.5" PointX="4.5" PointY="3.875" />
+        <EntityTypeShape EntityType="PTModel.Release" Width="1.5" PointX="6.5" PointY="5.875" />
+        <EntityTypeShape EntityType="PTModel.ScheduleOwner" Width="1.5" PointX="6.5" PointY="10.5" />
+        <EntityTypeShape EntityType="PTModel.UploadFile" Width="1.5" PointX="2.5" PointY="0.5" />
+        <AssociationConnector Association="PTModel.FK_RP_Release" />
+        <AssociationConnector Association="PTModel.ReleasePolicyFiles" />
+        <EntityTypeShape EntityType="PTModel.RecipGroup" Width="1.625" PointX="2.5" PointY="8.5" />
+        <AssociationConnector Association="PTModel.FK_RGO_RecipGroup" />
+        <AssociationConnector Association="PTModel.FK_RO_RecipGroup" />
+        <EntityTypeShape EntityType="PTModel.Policy" Width="1.5" PointX="2.5" PointY="4" />
+        <EntityTypeShape EntityType="PTModel.Schedule" Width="1.5" PointX="4.5" PointY="7.125" />
+        <AssociationConnector Association="PTModel.FK_PO_Policy" />
+        <AssociationConnector Association="PTModel.FK_RP_Policy" />
+        <AssociationConnector Association="PTModel.FK_Rel_Schedule" />
+        <AssociationConnector Association="PTModel.FK_SO_Schedule" />
+        <AssociationConnector Association="PTModel.SchedulePolicy" />
+        <AssociationConnector Association="PTModel.ScheduleRecipGroup" />
+        <AssociationConnector Association="PTModel.PolicyFiles" />
+        <EntityTypeShape EntityType="PTModel.ReleaseRecipient" Width="1.75" PointX="6.5" PointY="0.5" />
+        <AssociationConnector Association="PTModel.FK_RelRecip_Release" />
+        <EntityTypeShape EntityType="PTModel.PacketAckFile" Width="1.5" PointX="4.5" PointY="0.625" />
+        <AssociationConnector Association="PTModel.FK_PAF_File" />
+        <AssociationConnector Association="PTModel.FK_PAF_ReleaseRecipient" />
+        <EntityTypeShape EntityType="PTModel.ReleaseNotice" Width="1.5" PointX="8.625" PointY="3.75" />
+        <AssociationConnector Association="PTModel.FK_OAN_RelNotice" />
+        <AssociationConnector Association="PTModel.FK_RN_RelNotice" />
+        <AssociationConnector Association="PTModel.FK_RelN_Release" />
+        <EntityTypeShape EntityType="PTModel.vPacket" Width="1.5" PointX="8.5" PointY="11" IsExpanded="false" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
