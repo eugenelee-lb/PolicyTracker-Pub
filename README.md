@@ -32,9 +32,9 @@ Policy Tracker was developed to help departments distribute city/department poli
 Open solution file `PolicyTracker.sln`. It includes 3 projects.
 
 #### **PolicyTracker.vbproj** - Web application
-Update `web.config` and additional config files in `connectionStrings`, `appSettings`, and `mailSettings` for your environment.
+Update `web.config` and additional config files in `connectionStrings`, `appSettings`, and `mailSettings` for your environment. This can be published to both `PolicyTracker` and `PolicyTracker.Kiosk` web applications.
 
 #### **PolicyTracker.Batch.vbproj** - Console application
-Update `app.config` and additional config files in `connectionStrings`, `appSettings`, and `mailSettings` for your environment.
+Update `app.config` and additional config files in `connectionStrings`, `appSettings`, and `mailSettings` for your environment. This is used to import/update HR data, and to create releases/packets/notifications data and send email messages. You can register different scheduled tasks to run this with different options.
 
 #### **PolicyTracker.Lib.vbproj** - Libraries to support both of the projects listed above
