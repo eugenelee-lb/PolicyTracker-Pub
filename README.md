@@ -1,10 +1,10 @@
 # PolicyTracker - Public Repository
 
 ## Introduction
-Policy Tracker was developed to help departments track receipts of employee acknowledgement of city/department policies and training materials.
+Policy Tracker was developed to help departments distribute city/department policies and training materials to employees using email, and track receipts of employee acknowledgement of them.
 
 ## Objectives
-* Reduce time and efforts spent in distributing, collecting, and verifying policy acknowledgements
+* Reduce time and efforts spent in distributing packets, collecting and verifying policy acknowledgements
 * Allow administrators to easily track employees who have or have not acknowledged a policy
 * Provide employees a more convenient way to review and acknowledge policies
 * Save financial resources by reducing paper documents and storages 
